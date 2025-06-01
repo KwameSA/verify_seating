@@ -88,6 +88,11 @@ const guestList = [
 searchInput.addEventListener('input', function () {
   const input = this.value.trim().toLowerCase();
 
+  if (!input) {
+    resultDiv.innerHTML = "";
+    return;
+  }
+
   const guest = guestList.find(g => g.name.toLowerCase().includes(input));
 
   if (guest) {
