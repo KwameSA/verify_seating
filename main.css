@@ -23,6 +23,13 @@ input {
   border: 1px solid #ccc;
   border-radius: 8px;
   margin-bottom: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus {
+  border-color: #d4a373; /* Soft terracotta accent */
+  outline: none;
+  box-shadow: 0 0 5px rgba(212, 163, 115, 0.4);
 }
 
 .result {
@@ -31,4 +38,25 @@ input {
   background: #f2f2f2;
   padding: 1rem;
   border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.result.show {
+  opacity: 1;
+}
+
+/* Mobile-Friendly*/
+@media (max-width: 400px) {
+  .container {
+    padding: 1.5rem 1rem;
+  }
+
+  input {
+    font-size: 1rem;
+  }
+
+  .result {
+    font-size: 0.95rem;
+  }
 }
