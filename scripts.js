@@ -96,7 +96,7 @@ searchInput.addEventListener('input', function () {
     const names = tablemates.map(g => g.name).join(', ');
     resultDiv.innerHTML = `
       <p>You’re at <strong>Table ${tableNum}</strong>.</p>
-      <p>Seated with: ${names}</p>
+      <p>People on the table: ${names}</p>
     `;
   } else {
     resultDiv.innerHTML = input ? "<p>Name not found. Please try again.</p>" : "";
