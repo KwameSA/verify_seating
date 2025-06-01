@@ -93,17 +93,23 @@ searchInput.addEventListener('input', function () {
     return;
   }
 
-  const guest = guestList.find(g => g.name.toLowerCase().includes(input));
+  const guest = guestList.find(g => g.name.toLowerCase() === input) ||
+                guestList.find(g => g.name.toLowerCase().includes(input));
 
   if (guest) {
     const tableNum = guest.table;
-    const tablemates = guestList.filter(g => g.table === tableNum);
-    const names = tablemates.map(g => g.name).join(', ');
+
+    const tablemates = guestList
+      .filter(g => g.table === tableNum && g.name !== guest.name)
+      .map(g => g.name)
+      .join(', ');
+
     resultDiv.innerHTML = `
-      <p>You’re at <strong>Table ${tableNum}</strong>.</p>
-      <p>People on the table: ${names}</p>
+      <p>Hello <strong>${guest.name}</strong>, you’re at <strong>Table ${tableNum}</strong>.</p>
+      <p>You are eated with: ${tablemates || "No one else at this table."}</p>
     `;
   } else {
-    resultDiv.innerHTML = input ? "<p>Name not found. Please try again.</p>" : "";
+    resultDiv.innerHTML = "<p>Name not found. Please try again.</p>";
   }
 });
+
