@@ -106,7 +106,7 @@ searchInput.addEventListener('input', function () {
 
     resultDiv.innerHTML = `
       <p>Hello <strong>${guest.name}</strong>, you’re at <strong>Table ${tableNum}</strong>.</p>
-      <p>You are eated with: ${tablemates || "No one else at this table."}</p>
+      <p>You are seated with: ${tablemates || "No one else at this table."}</p>
     `;
   } else {
     resultDiv.innerHTML = "<p>Name not found. Please try again.</p>";
