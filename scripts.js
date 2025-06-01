@@ -83,6 +83,7 @@ const guestList = [
   { name: "Pradeep Devkota", table: 10 }
 ];
 
+document.querySelector('.result').classList.add('show');
 
 
 searchInput.addEventListener('input', function () {
@@ -108,8 +109,11 @@ searchInput.addEventListener('input', function () {
       <p>Hello <strong>${guest.name}</strong>, you’re at <strong>Table ${tableNum}</strong>.</p>
       <p>You are seated with: ${tablemates || "No one else at this table."}</p>
     `;
+
+    resultDiv.classList.add('show');
   } else {
     resultDiv.innerHTML = "<p>Name not found. Please try again.</p>";
+    resultDiv.classList.remove('show');
   }
 });
 
